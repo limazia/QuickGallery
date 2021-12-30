@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1 px solid black;
+  background: #556ee6;
+}
+
+img,
+svg {
+  display: block;
+  width: 100%;
+}
+
+button:hover,
+button:focus,
+button:active,
+button:active:focus:not(:disabled):not(.disabled) {
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+#sidebar {
+  position: relative;
+  min-width: 250px;
+  max-width: 250px;
+  background: #866ec7;
+  color: #fff;
+  transition: all 0.3s;
+}
+#sidebar h1 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+#sidebar h1 .logo {
+  color: #fff;
+  text-decoration: none;
+  transition: ease 0.5s;
+}
+#sidebar h1 .logo:hover, #sidebar h1 .logo:focus, #sidebar h1 .logo:active, #sidebar h1 .logo:active:focus:not(:disabled):not(.disabled) {
+  color: #d6d6d6;
+}
+#sidebar ul {
+  padding: 0;
+}
+#sidebar ul li {
+  font-size: 16px;
+}
+#sidebar ul li a {
+  padding: 10px 0;
+  display: block;
+  font-weight: 600;
+  transition: 0.5s ease;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#sidebar ul li a:focus, #sidebar ul li a:active, #sidebar ul li a:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+}
+#sidebar ul li a:hover {
+  color: #d6d6d6;
+}
+#sidebar ul li:last-child a {
+  border: none;
+}
+#sidebar ul li.active a {
+  background: transparent;
+  color: #fff;
+  font-weight: bold;
+}
+#sidebar .footer {
+  text-align: center;
+}
+#sidebar .footer p {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.wrapper {
+  width: 100%;
+}
+
+#content {
+  width: 100%;
+  padding: 0;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+.card {
+  word-wrap: break-word;
+  background-clip: border-box;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card,
+.card-body,
+.card-img-top {
+  box-shadow: none;
+  border-radius: 6px;
+}
+
+.card-image {
+  max-width: 100%;
+  border: none;
+}
+
+.btn-label {
+  position: relative;
+  padding-left: 44px;
+}
+.btn-label .label-icon {
+  position: absolute;
+  width: 32px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-login-discord,
+.btn-login-discord:focus,
+.btn-login-discord:active,
+.btn-login-discord:active:focus:not(:disabled):not(.disabled) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #891d34;
+  border-color: #891d34;
+  padding: 5px 30px;
+  border-radius: 6px;
+  transition: 0.5s ease;
+  font-size: 13px;
+}
+.btn-login-discord i,
+.btn-login-discord:focus i,
+.btn-login-discord:active i,
+.btn-login-discord:active:focus:not(:disabled):not(.disabled) i {
+  margin-left: 8px;
+  /* transform: translateY(2px); */
+}
+.btn-login-discord:hover,
+.btn-login-discord:focus:hover,
+.btn-login-discord:active:hover,
+.btn-login-discord:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background-color: #ba2746;
+  border-color: #ba2746;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #34c38f;
+  border-color: #34c38f;
+  transition: 0.5s ease;
+}
+.btn-success:hover {
+  color: #fff;
+  background-color: #2ca67a;
+  border-color: #2a9c72;
+}
+
+.btn-signin,
+.btn-signin:focus,
+.btn-signin:active,
+.btn-signin:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background-color: #00A9EA;
+  border-color: #00A9EA;
+  padding: 10px 30px;
+  border-radius: 0.25rem;
+  transition: 0.5s ease;
+}
+.btn-signin:hover,
+.btn-signin:focus:hover,
+.btn-signin:active:hover,
+.btn-signin:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background-color: #1ec1ff;
+  border-color: #1ec1ff;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,18 @@
+.card {
+  word-wrap: break-word;
+  background-clip: border-box;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card,
+.card-body,
+.card-img-top {
+  box-shadow: none;
+  border-radius: 6px;
+}
+
+.card-image {
+  max-width: 100%;
+  border: none;
+}

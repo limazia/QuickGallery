@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+  <div class="wrapper d-flex align-items-stretch">
+    <%- include('partials/sidebar.ejs') %>
+    <div id="content" class="p-4 p-md-5 pt-5">
+      <h2 class="mb-4"><%= title %></h2>
+      <% if(imagesPerGallery.length> 0){ %>
+        <div class="row">
+          <% for (image of imagesPerGallery) { %>
+            <div class="col-md-3 pb-4">
+              <div class="card card-image">
+                <a href="<%= PAGE_URL %>/images/<%= title.toLowerCase() %>/<%= image %>" target="_blank">
+                  <img class="card-img-top" src="<%= PAGE_URL %>/images/<%= title.toLowerCase() %>/<%= image %>" alt="<%= image %>">
+                </a>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      <% } else { %>
+        <div class="alert alert-danger">
+          Nenhuma imagem foi encontrada para esta categoria.
+        </div>
+      <% } %>
+    </div>
+  </div>
+<%- include('partials/footer.ejs') %>
