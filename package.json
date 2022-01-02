@@ -1,5 +1,5 @@
 {
-  "name": "gallery",
+  "name": "quick-gallery",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",

@@ -64,6 +64,16 @@ button:active:focus:not(:disabled):not(.disabled) {
 #sidebar ul li {
   font-size: 16px;
 }
+#sidebar ul li ul {
+  margin-left: 10px;
+}
+#sidebar ul li ul li {
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#sidebar ul li ul li:last-child {
+  border: none;
+}
 #sidebar ul li a {
   padding: 10px 0;
   display: block;
@@ -79,6 +89,11 @@ button:active:focus:not(:disabled):not(.disabled) {
 #sidebar ul li a:hover {
   color: #d6d6d6;
 }
+#sidebar ul li a[data-toggle=collapse] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 #sidebar ul li:last-child a {
   border: none;
 }
@@ -86,6 +101,27 @@ button:active:focus:not(:disabled):not(.disabled) {
   background: transparent;
   color: #fff;
   font-weight: bold;
+}
+#sidebar .empty_menu {
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+}
+#sidebar .empty_menu .icon-box {
+  /*
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #d6e9f6;
+  border: 2px solid #FFF;
+  */
+}
+#sidebar .empty_menu .icon-box i {
+  color: #FFF;
+  font-size: 64px;
 }
 #sidebar .footer {
   text-align: center;
@@ -103,6 +139,29 @@ button:active:focus:not(:disabled):not(.disabled) {
   padding: 0;
   min-height: 100vh;
   transition: all 0.3s;
+}
+
+.title {
+  text-transform: capitalize;
+}
+
+.empty_gallery {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty_gallery .empty-box {
+  display: block;
+  text-align: center;
+}
+.empty_gallery .empty-box i {
+  color: #000;
+  font-size: 64px;
+}
+.empty_gallery .empty-box span {
+  color: #6c757d;
+  font-size: 20px;
 }
 
 .card {

@@ -1,20 +1,19 @@
-/*
 const { config: dotEnvConfig } = require("dotenv");
 const path = require("path");
 
-export const root_path = (directory = undefined) =>
+const root_path = (directory = undefined) =>
   path.resolve(__dirname, "../../..", directory || "");
-export const client_path = (directory) =>
+const client_path = (directory) =>
   path.resolve(root_path(), "client", directory || "");
-export const server_path = (directory) =>
+const server_path = (directory) =>
   path.resolve(root_path(), "server", directory || "");
-export const src_path = (directory) =>
+const src_path = (directory) =>
   path.resolve(server_path(), "src", directory || "");
-export const app_path = (directory) =>
+const app_path = (directory) =>
   path.resolve(server_path(), "src/app", directory || "");
 dotEnvConfig({ path: root_path(".env") });
 
-export const env = (key, defaultValue) => {
+const env = (key, defaultValue) => {
   const value = process.env[key] || defaultValue;
   if (typeof value === "undefined") {
     throw new Error(`Environment variable ${key} not set.`);
@@ -23,7 +22,7 @@ export const env = (key, defaultValue) => {
   return value;
 };
 
-export const normalizePort = (port) => {
+const normalizePort = (port) => {
   port = parseInt(port, 10);
 
   if (isNaN(port)) {
@@ -37,13 +36,11 @@ export const normalizePort = (port) => {
   return port;
 };
 
-export const onServerListening = (server) => {
-  const addr = server.address();
-  const bind = typeof addr === "string" ? `pipe ${addr}` : `port ${addr.port}`;
-  console.info(`Server listening on ${bind}`);
+const onServerListening = () => {
+  console.log(`Server running in ${process.env.APP_URL}:${process.env.APP_PORT}`);
 };
 
-export const onServerError = (error) => {
+const onServerError = (error) => {
   if (error.syscall !== "listen") {
     throw error;
   }
@@ -63,16 +60,14 @@ export const onServerError = (error) => {
   }
 };
 
-export function* range(begin, end, interval = 1) {
-  for (let i = begin; i < end; i += interval) {
-    yield i;
-  }
-}
-
-export const random = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-
-export const isArray = (data) => Array.isArray(data);
-export const isObject = (data) => typeof data === "object" && !isArray(data);
-export const isBycryptedHash = (string) => /^\$2[ayb]\$[0-9]{2}\$[A-Za-z0-9./]{53}$/.test(string);
-*/
+module.exports = {
+  root_path,
+  client_path,
+  server_path,
+  src_path,
+  app_path,
+  env,
+  normalizePort,
+  onServerListening,
+  onServerError,
+};

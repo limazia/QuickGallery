@@ -2,24 +2,33 @@ const path = require("path");
 const fs = require("fs");
 
 const capitalize = (string) => {
-	return string.charAt(0).toUpperCase() + string.substr(1);
+  return string
+    .replace(/(_|-)/g, " ")
+    .trim()
+    .replace(/\w\S*/g, function (str) {
+      return str.charAt(0).toUpperCase() + str.substr(1);
+    })
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2");
+}
+
+const sorted = (data, dir) => {
+  return data.sort((a, b) => {
+    const aStat = fs.statSync(`${dir}/${a}`);
+    const bStat = fs.statSync(`${dir}/${b}`);
+
+    return (new Date(bStat.birthtime).getTime() - new Date(aStat.birthtime).getTime());
+  });
 }
 
 const listFolders = () => {
   const dirGallery = path.resolve(__dirname, "../../", process.env.FOLDER_ROOT);
 
-  const serialized = fs.readdirSync(dirGallery).map((file) => {
-    return file;
+  const serialized = fs.readdirSync(dirGallery).map((folders) => {
+    return folders;
   });
 
-  const sorted = serialized.sort((a, b) => {
-    const aStat = fs.statSync(`${dirGallery}/${a}`);
-    const bStat = fs.statSync(`${dirGallery}/${b}`);
-
-    return (new Date(bStat.birthtime).getTime() - new Date(aStat.birthtime).getTime());
-  });
-
-  return sorted;
+  return sorted(serialized, dirGallery);
 };
 
 const listImages = (activeGallery) => {
@@ -29,18 +38,12 @@ const listImages = (activeGallery) => {
     return images;
   });
 
-  const sorted = serialized.sort((a, b) => {
-    const aStat = fs.statSync(`${dirGallery}/${a}`);
-    const bStat = fs.statSync(`${dirGallery}/${b}`);
-
-    return (new Date(bStat.birthtime).getTime() - new Date(aStat.birthtime).getTime());
-  });
-
-  return sorted;
+  return sorted(serialized, dirGallery);
 };
 
 module.exports = {
   capitalize,
+  sorted,
   listFolders,
   listImages
 };

@@ -10,3 +10,29 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
+
+.title {
+  text-transform: capitalize;
+}
+
+.empty_gallery {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .empty-box {
+    display: block;
+    text-align: center;
+    
+    i {
+      color: #000;
+      font-size: 64px;
+    }
+  
+    span {
+      color: #6c757d;
+      font-size: 20px;
+    }
+  }
+}

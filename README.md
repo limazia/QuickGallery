@@ -1,2 +1,3 @@
-# LZStore
- 
+# Quick Gallery
+
+soon...

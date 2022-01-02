@@ -17,9 +17,14 @@ class WebController {
     try {
       const { gallery } = request.params;
 
+      const nameGalleryCapitalize = capitalize(gallery);
+      //const nameGallery = listImages(gallery).toString().toLowerCase();
+      
+      //imagesPerGallery: { name: "nameGallery", url: `${process.env.APP_URL}:${process.env.APP_PORT}/${process.env.STATIC_DIR}/${nameGallery}/${nameGallery}`,},
+
       return response.status(200).render("Gallery", {
-        title: capitalize(gallery),
-        menuActive: capitalize(gallery),
+        title: nameGalleryCapitalize,
+        menuActive: nameGalleryCapitalize,
         galleryAvailable: listFolders(),
         imagesPerGallery: listImages(gallery)
       });
