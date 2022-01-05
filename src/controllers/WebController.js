@@ -1,4 +1,4 @@
-const { capitalize, listFolders, listImages } = require("../helpers/utils.helper");
+const { capitalize, checkGallery, listFolders, listImages } = require("../helpers/utils.helper");
 
 class WebController {
   async renderHome(request, response, next) {
@@ -18,9 +18,10 @@ class WebController {
       const { gallery } = request.params;
 
       const nameGalleryCapitalize = capitalize(gallery);
-      //const nameGallery = listImages(gallery).toString().toLowerCase();
-      
-      //imagesPerGallery: { name: "nameGallery", url: `${process.env.APP_URL}:${process.env.APP_PORT}/${process.env.STATIC_DIR}/${nameGallery}/${nameGallery}`,},
+
+      if (!checkGallery(gallery)) {
+        return response.status(404).redirect("/");
+      }
 
       return response.status(200).render("Gallery", {
         title: nameGalleryCapitalize,

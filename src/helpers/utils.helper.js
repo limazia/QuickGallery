@@ -21,6 +21,16 @@ const sorted = (data, dir) => {
   });
 }
 
+const checkGallery = (activeGallery) => {
+  const dirGallery = path.resolve(__dirname, "../../", process.env.FOLDER_ROOT, activeGallery);
+  
+  if (fs.existsSync(dirGallery)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 const listFolders = () => {
   const dirGallery = path.resolve(__dirname, "../../", process.env.FOLDER_ROOT);
 
@@ -32,18 +42,22 @@ const listFolders = () => {
 };
 
 const listImages = (activeGallery) => {
-  const dirGallery = path.resolve(__dirname, "../../", process.env.FOLDER_ROOT, `${activeGallery}/`);
-
+  const dirGallery = path.resolve(__dirname, "../../", process.env.FOLDER_ROOT, activeGallery);
+  
   const serialized = fs.readdirSync(dirGallery).map((images) => {
-    return images;
+    return {
+      name: images,
+      url: `${process.env.APP_URL}:${process.env.APP_PORT}/${process.env.STATIC_DIR}/${activeGallery}/${images}`
+    };
   });
 
-  return sorted(serialized, dirGallery);
+  return serialized;
 };
 
 module.exports = {
   capitalize,
   sorted,
+  checkGallery,
   listFolders,
   listImages
 };

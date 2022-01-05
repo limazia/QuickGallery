@@ -5,15 +5,15 @@
       <h2 class="mb-4 title"><%= title.replace(/\.|\-/g, " ") %></h2>
       <% if(imagesPerGallery.length> 0){ %>
         <div class="row">
-          <% for (image of imagesPerGallery) { %>
+          <% imagesPerGallery.forEach(function(image) { %>
             <div class="col-md-3 pb-4">
               <div class="card card-image">
-                <a href="<%= PAGE_URL %>/attachments/<%= title.toLowerCase() %>/<%= image %>" target="_blank">
-                  <img class="card-img-top" src="<%= PAGE_URL %>/attachments/<%= title.toLowerCase() %>/<%= image %>" alt="<%= image %>">
+                <a href="<%= image.url %>" target="_blank">
+                  <img class="card-img-top" src="<%= image.url %>" alt="<%= image.name %>">
                 </a>
               </div>
             </div>
-          <% } %>
+          <% }); %>
         </div>
       <% } else { %>
         <div class="empty_gallery">
