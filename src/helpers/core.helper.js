@@ -1,17 +1,5 @@
-const { config: dotEnvConfig } = require("dotenv");
 const path = require("path");
-
-const root_path = (directory = undefined) =>
-  path.resolve(__dirname, "../../..", directory || "");
-const client_path = (directory) =>
-  path.resolve(root_path(), "client", directory || "");
-const server_path = (directory) =>
-  path.resolve(root_path(), "server", directory || "");
-const src_path = (directory) =>
-  path.resolve(server_path(), "src", directory || "");
-const app_path = (directory) =>
-  path.resolve(server_path(), "src/app", directory || "");
-dotEnvConfig({ path: root_path(".env") });
+const fs = require("fs");
 
 const env = (key, defaultValue) => {
   const value = process.env[key] || defaultValue;
@@ -22,52 +10,64 @@ const env = (key, defaultValue) => {
   return value;
 };
 
-const normalizePort = (port) => {
-  port = parseInt(port, 10);
+const capitalize = (string) => {
+  return string
+    .replace(/(_|-)/g, " ")
+    .trim()
+    .replace(/\w\S*/g, function (str) {
+      return str.charAt(0).toUpperCase() + str.substr(1);
+    })
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2");
+}
 
-  if (isNaN(port)) {
-    throw new Error("Invalid port.");
+const sorted = (data, dir) => {
+  return data.sort((a, b) => {
+    const aStat = fs.statSync(`${dir}/${a}`);
+    const bStat = fs.statSync(`${dir}/${b}`);
+
+    return (new Date(bStat.birthtime).getTime() - new Date(aStat.birthtime).getTime());
+  });
+}
+
+const checkGalleryExists = (activeGallery) => {
+  const dirGallery = path.resolve(__dirname, "../../", env("FOLDER_ROOT"), activeGallery);
+  
+  if (fs.existsSync(dirGallery)) {
+    return true;
+  } else {
+    return false;
   }
-
-  if (port <= 0) {
-    throw new Error("Invalid port.");
-  }
-
-  return port;
 };
 
-const onServerListening = () => {
-  console.log(`Server running in ${process.env.APP_URL}:${process.env.APP_PORT}`);
+const getFolderListing = () => {
+  const dirGallery = path.resolve(__dirname, "../../", env("FOLDER_ROOT"));
+
+  const serialized = fs.readdirSync(dirGallery).map((folders) => {
+    return folders;
+  });
+
+  return sorted(serialized, dirGallery);
 };
 
-const onServerError = (error) => {
-  if (error.syscall !== "listen") {
-    throw error;
-  }
+const getImagesListing = (activeGallery) => {
+  const dirGallery = path.resolve(__dirname, "../../", env("FOLDER_ROOT"), activeGallery);
+  
+  const serialized = fs.readdirSync(dirGallery).map((images) => {
+    return {
+      name: images,
+      url: `${env("APP_URL", "http://localhost")}:${env("APP_PORT", 3333)}/${env("STATIC_DIR")}/${activeGallery}/${images}`
+    };
+  });
 
-  const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
-  switch (error.code) {
-    case "EACCES":
-      console.error(`${bind} requires elevated privileges`);
-      process.exit(1);
-      break;
-    case "EADDRINUSE":
-      console.error(`${bind} is already in use`);
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
+  return serialized;
 };
 
 module.exports = {
-  root_path,
-  client_path,
-  server_path,
-  src_path,
-  app_path,
   env,
-  normalizePort,
-  onServerListening,
-  onServerError,
+  capitalize,
+  sorted,
+  checkGalleryExists,
+  getFolderListing,
+  getImagesListing,
 };

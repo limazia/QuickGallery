@@ -1,4 +1,9 @@
-const { capitalize, checkGallery, listFolders, listImages } = require("../helpers/utils.helper");
+const {
+  capitalize,
+  checkGalleryExists,
+  getFolderListing,
+  getImagesListing,
+} = require("../helpers/core.helper");
 
 class WebController {
   async renderHome(request, response, next) {
@@ -6,7 +11,7 @@ class WebController {
       return response.status(200).render("Home", {
         title: "Inicio",
         menuActive: "home",
-        galleryAvailable: listFolders()
+        galleryAvailable: getFolderListing()
       });
     } catch (err) {
       next(err);
@@ -19,15 +24,15 @@ class WebController {
 
       const nameGalleryCapitalize = capitalize(gallery);
 
-      if (!checkGallery(gallery)) {
+      if (!checkGalleryExists(gallery)) {
         return response.status(404).redirect("/");
       }
 
       return response.status(200).render("Gallery", {
         title: nameGalleryCapitalize,
         menuActive: nameGalleryCapitalize,
-        galleryAvailable: listFolders(),
-        imagesPerGallery: listImages(gallery)
+        galleryAvailable: getFolderListing(),
+        imagesPerGallery: getImagesListing(gallery)
       });
     } catch (err) {
       next(err);
