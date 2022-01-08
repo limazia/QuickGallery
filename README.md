@@ -40,5 +40,5 @@ quickgallery
 
 Credits
 ============
-Created by Acacio de Lima and his project inspired by ![mojeda](https://github.com/mojeda) ![QuickGallery
+Created by Acacio de Lima and his project inspired by [mojeda](https://github.com/mojeda) [QuickGallery
 ](https://github.com/mojeda/QuickGallery) in PHP
