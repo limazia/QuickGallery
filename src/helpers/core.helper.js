@@ -52,11 +52,19 @@ const getFolderListing = () => {
 
 const getImagesListing = (activeGallery) => {
   const dirGallery = path.resolve(__dirname, "../../", env("FOLDER_ROOT"), activeGallery);
+  const extensions = env("ALLOWED_TYPE", "").split(", ");
+
+  const getAllImages = fs.readdirSync(dirGallery).map((images) => {
+    return images
+  });
+  const filtered = getAllImages.filter(file => extensions.includes(file.split('.').pop()));
   
-  const serialized = fs.readdirSync(dirGallery).map((images) => {
+  const hasExtensionAllowed = env("ALLOWED_TYPE", "") ? filtered : getAllImages;
+
+  const serialized = hasExtensionAllowed.map((images) => {
     return {
       name: images,
-      url: `${env("APP_URL", "http://localhost")}:${env("APP_PORT", 3333)}/${env("STATIC_DIR")}/${activeGallery}/${images}`
+      url: `${env("APP_URL", "http://localhost")}:${env("APP_PORT", 3333)}/${env("STATIC_DIR", "attachments")}/${activeGallery}/${images}`
     };
   });
 

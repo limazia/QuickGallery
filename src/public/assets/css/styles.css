@@ -37,6 +37,14 @@ button:active:focus:not(:disabled):not(.disabled) {
   outline: 0 !important;
 }
 
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn:active:focus:not(:disabled):not(.disabled) {
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
 #sidebar {
   position: relative;
   min-width: 250px;
@@ -164,6 +172,28 @@ button:active:focus:not(:disabled):not(.disabled) {
   font-size: 20px;
 }
 
+.modal-image {
+  border: none;
+}
+.modal-image .modal-body {
+  padding: 0;
+}
+.modal-image .modal-body img {
+  border-top-right-radius: calc(0.3rem - 1px);
+  border-top-left-radius: calc(0.3rem - 1px);
+}
+.modal-image .modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-image .modal-footer .image_name {
+  max-width: 65%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card {
   word-wrap: break-word;
   background-clip: border-box;
@@ -182,84 +212,27 @@ button:active:focus:not(:disabled):not(.disabled) {
   max-width: 100%;
   border: none;
 }
-
-.btn-label {
-  position: relative;
-  padding-left: 44px;
-}
-.btn-label .label-icon {
-  position: absolute;
-  width: 32px;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.card-image .card-img-top {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.075);
+  cursor: pointer;
 }
 
-.btn-login-discord,
-.btn-login-discord:focus,
-.btn-login-discord:active,
-.btn-login-discord:active:focus:not(:disabled):not(.disabled) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.btn-download,
+.btn-download:focus,
+.btn-download:active,
+.btn-download:active:focus:not(:disabled):not(.disabled) {
   color: #fff;
-  background-color: #891d34;
-  border-color: #891d34;
-  padding: 5px 30px;
-  border-radius: 6px;
-  transition: 0.5s ease;
-  font-size: 13px;
-}
-.btn-login-discord i,
-.btn-login-discord:focus i,
-.btn-login-discord:active i,
-.btn-login-discord:active:focus:not(:disabled):not(.disabled) i {
-  margin-left: 8px;
-  /* transform: translateY(2px); */
-}
-.btn-login-discord:hover,
-.btn-login-discord:focus:hover,
-.btn-login-discord:active:hover,
-.btn-login-discord:active:focus:not(:disabled):not(.disabled):hover {
-  color: #fff;
-  background-color: #ba2746;
-  border-color: #ba2746;
-}
-
-.btn-success {
-  color: #fff;
-  background-color: #34c38f;
-  border-color: #34c38f;
-  transition: 0.5s ease;
-}
-.btn-success:hover {
-  color: #fff;
-  background-color: #2ca67a;
-  border-color: #2a9c72;
-}
-
-.btn-signin,
-.btn-signin:focus,
-.btn-signin:active,
-.btn-signin:active:focus:not(:disabled):not(.disabled) {
-  color: #fff;
-  background-color: #00A9EA;
-  border-color: #00A9EA;
+  background-color: #866ec7;
+  border-color: #866ec7;
   padding: 10px 30px;
   border-radius: 0.25rem;
   transition: 0.5s ease;
 }
-.btn-signin:hover,
-.btn-signin:focus:hover,
-.btn-signin:active:hover,
-.btn-signin:active:focus:not(:disabled):not(.disabled):hover {
+.btn-download:hover,
+.btn-download:focus:hover,
+.btn-download:active:hover,
+.btn-download:active:focus:not(:disabled):not(.disabled):hover {
   color: #fff;
-  background-color: #1ec1ff;
-  border-color: #1ec1ff;
+  background-color: #a593d5;
+  border-color: #a593d5;
 }/*# sourceMappingURL=styles.css.map */

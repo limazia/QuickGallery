@@ -20,19 +20,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   .empty-box {
     display: block;
     text-align: center;
-    
+
     i {
       color: #000;
       font-size: 64px;
     }
-  
+
     span {
       color: #6c757d;
       font-size: 20px;
+    }
+  }
+}
+
+.modal-image {
+  border: none;
+
+  .modal-body {
+    padding: 0;
+
+    img {
+      border-top-right-radius: calc(0.3rem - 1px);
+      border-top-left-radius: calc(0.3rem - 1px);
+    }
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .image_name {
+      max-width: 65%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }
