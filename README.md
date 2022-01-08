@@ -42,6 +42,20 @@ quickgallery
 │   ├── Fortnite_2022-01-08_3478_.jpg  
 ├── package.json
 
+
+File Tree Example
+============
+quickgallery  
+├── src/  
+├── .env  
+├── store/Fortnite  
+│   ├── Fortnite_2022-01-08_3423_.png  
+│   ├── Fortnite_2022-01-08_3489_.png  
+│   ├── Fortnite_2022-01-08_3456_.gif 
+│   ├── Fortnite_2022-01-08_3411_.jpeg  
+│   ├── Fortnite_2022-01-08_3478_.jpg  
+├── package.json  
+
 Credits
 ============
 Created by [Acacio de Lima](https://twitter.com/limadeacacio) inspired in [QuickGallery
