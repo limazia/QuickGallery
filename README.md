@@ -6,8 +6,8 @@ Quick Gallery allows you to upload image folders to make an online gallery with 
 Screenshots
 ============
 ![Quick Gallery](https://i.imgur.com/6O1YGHt.png)
-![Quick Gallery](https://i.imgur.com/6O1YGHt.png)
 ![Quick Gallery](https://i.imgur.com/wDvaZBp.png)
+![Quick Gallery](https://i.imgur.com/qaegtwZ.png)
 ![Quick Gallery](https://i.imgur.com/ZVVpFkh.png)
 
 Instructions
