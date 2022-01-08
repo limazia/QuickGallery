@@ -8,6 +8,6 @@ const WebController = require("./controllers/WebController");
 // Main
 routes.get("/", WebController.renderHome);
 routes.get("/:gallery", WebController.renderGallery);
-//routes.get("*", WebController.renderPageNotFound);
+routes.get("*", WebController.renderPageNotFound);
 
 module.exports = routes;

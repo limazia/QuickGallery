@@ -9,8 +9,6 @@ class WebController {
   async renderHome(request, response, next) {
     try {
       return response.status(200).render("Home", {
-        title: "Inicio",
-        menuActive: "home",
         galleryAvailable: getFolderListing()
       });
     } catch (err) {
