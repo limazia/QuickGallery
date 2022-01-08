@@ -12,10 +12,10 @@ Screenshots
 
 Instructions
 ============
-1. Download index.php and thumb.php
-2. Upload to a folder accessible by the internet (e.g. A folder called "gallery")
-3. Upload image albums to their own folder.
-4. Profit???
+1. Download the repository
+2. Then run your package manager's install command: ```npm i``` ou ```yarn```
+3. Configure the ```".env"``` file and create the ```"FOLDER_ROOT"``` folder
+4. Run the server with npm start or yarn run
   
 Settings
 ============
@@ -44,5 +44,5 @@ quickgallery
 
 Credits
 ============
-Created by [Acacio de Lima](https://twitter.com/limadeacacio) inspired by [QuickGallery
+Created by [Acacio de Lima](https://twitter.com/limadeacacio) inspired in [QuickGallery
 ](https://github.com/mojeda/QuickGallery) created in PHP by [mojeda](https://github.com/mojeda)
