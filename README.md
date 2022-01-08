@@ -22,7 +22,7 @@ Settings
 Edit in .env file:
 
 ```FOLDER_ROOT=store```\
-```STATIC_DIR=STATIC_DIR```\
+```STATIC_DIR=attachments```\
 ```ALLOWED_TYPE="png, jpg, jpeg, gif"```
 
 ```FOLDER_ROOT: Root folder to create gallery categories```\
