@@ -13,9 +13,9 @@ Screenshots
 Instructions
 ============
 1. Download the repository
-2. Then run your package manager's install command: ```npm i``` ou ```yarn```
+2. Then run your package manager's install command: ```npm i``` or ```yarn add```
 3. Configure the ```".env"``` file and create the ```"FOLDER_ROOT"``` folder
-4. Run the server with npm start or yarn run
+4. Run the server with ```npm start``` or ```yarn run```
   
 Settings
 ============
@@ -37,9 +37,9 @@ quickgallery
 ├── store/Fortnite  
 │   ├── Fortnite_2022-01-08_3423_.png  
 │   ├── Fortnite_2022-01-08_3489_.png  
-│   ├── Fortnite_2022-01-08_3456_.png  
-│   ├── Fortnite_2022-01-08_3411_.png  
-│   ├── Fortnite_2022-01-08_3478_.png  
+│   ├── Fortnite_2022-01-08_3456_.gif 
+│   ├── Fortnite_2022-01-08_3411_.jpeg  
+│   ├── Fortnite_2022-01-08_3478_.jpg  
 ├── package.json
 
 Credits
