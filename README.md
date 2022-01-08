@@ -23,11 +23,11 @@ Edit in .env file:
 
 ```FOLDER_ROOT=store```\
 ```STATIC_DIR=STATIC_DIR```\
-```ALLOWED_TYPE="png, jpg, jpeg, gif"```\
-
-```FOLDER_ROOT=store```
-```STATIC_DIR=STATIC_DIR```
 ```ALLOWED_TYPE="png, jpg, jpeg, gif"```
+
+```FOLDER_ROOT: Root folder to create gallery categories```\
+```STATIC_DIR: Static route to show images (http://localhost:3000/attachments/fortnite/scarlight.png)```\
+```ALLOWED_TYPE: File extension allowed```
 
 File Tree Example
 ============
