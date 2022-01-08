@@ -17,9 +17,13 @@ Instructions
 3. Upload image albums to their own folder.
 4. Profit???
   
-Instructions
+Settings
 ============
 Edit in .env file:
+
+```FOLDER_ROOT=store```\
+```STATIC_DIR=STATIC_DIR```\
+```ALLOWED_TYPE="png, jpg, jpeg, gif"```\
 
 ```FOLDER_ROOT=store```
 ```STATIC_DIR=STATIC_DIR```
@@ -40,5 +44,5 @@ quickgallery
 
 Credits
 ============
-Created by Acacio de Lima and his project inspired by [mojeda](https://github.com/mojeda) [QuickGallery
-](https://github.com/mojeda/QuickGallery) in PHP
+Created by [Acacio de Lima](https://twitter.com/limadeacacio) inspired by [QuickGallery
+](https://github.com/mojeda/QuickGallery) created in PHP by [mojeda](https://github.com/mojeda)
